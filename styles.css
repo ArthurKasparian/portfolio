@@ -47,19 +47,11 @@ a, a:hover, a:active, a:visited {
 
 @media (min-aspect-ratio: 1/1) {
   main {
-    display: flex;
     flex-direction: row;
-    overflow-y: hidden;
   }
   main article {
     width: 50%;
     margin: 12dvh 0 10dvh 10dvw;
-    position: relative;
-  }
-  main article figure {
-    position: absolute;
-    bottom: 0;
-    left: 0;
   }
   main > nav {
     width: 50%;
@@ -75,12 +67,32 @@ a, a:hover, a:active, a:visited {
     padding-bottom: 30dvh;
     overflow-y: scroll;
   }
-  main button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+}
+@media (max-aspect-ratio: 1/1) {
+  main {
+    flex-direction: column-reverse;
+    height: 100dvh;
+  }
+  main > nav {
+    margin: 8dvh 0;
+  }
+  main article {
+    flex: 1;
+    margin: 0 12dvw 8dvh 12dvw;
   }
 }
+main {
+  display: flex;
+}
+main article {
+  position: relative;
+}
+main article figure {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 * {
   transition: color 0.25s ease, background-color 0.35s ease 0.05s;
 }
@@ -162,26 +174,54 @@ article nav ul li a {
 }
 
 @media (min-aspect-ratio: 1/1) {
+  #projects {
+    height: 100dvh;
+    overflow-y: hidden;
+  }
   #projects ol {
-    list-style: none;
-    counter-reset: item -1;
-    direction: rtl;
     width: max-content;
+    direction: rtl;
   }
   #projects ol li {
-    counter-increment: item;
     margin-bottom: 12px;
     padding-bottom: 4px;
-    opacity: 0.6;
-    transition: opacity 0.2s ease 0.1s, text-shadow 0.3s ease 0s;
-  }
-  #projects ol li:hover, #projects ol li:has(.flipped) {
-    opacity: 1;
-  }
-  #projects ol li:hover:not(:has(.flipped)) {
-    text-shadow: 0 0 6px;
   }
 }
+@media (max-aspect-ratio: 1/1) {
+  #projects ol {
+    overflow-x: scroll;
+    width: fit-content;
+    display: grid;
+    grid-template-rows: repeat(3, auto); /* 3 rows, adjust as needed */
+    grid-template-columns: repeat(auto-fill, auto); /* Adjust minmax values as needed */
+    grid-auto-flow: column;
+    column-gap: 12px;
+    flex-direction: column-reverse;
+    grid-column-start: 3;
+  }
+  #projects ol li {
+    min-width: max-content;
+    direction: rtl;
+    margin-bottom: 6px;
+    padding-bottom: 2px;
+  }
+}
+#projects ol {
+  list-style: none;
+  counter-reset: item -1;
+}
+#projects ol li {
+  counter-increment: item;
+  opacity: 0.6;
+  transition: opacity 0.2s ease 0.1s, text-shadow 0.3s ease 0s;
+}
+#projects ol li:hover, #projects ol li:has(.flipped) {
+  opacity: 1;
+}
+#projects ol li:hover:not(:has(.flipped)) {
+  text-shadow: 0 0 6px;
+}
+
 @media (min-aspect-ratio: 1/1) {
   figure {
     width: 90%;
@@ -191,25 +231,18 @@ article nav ul li a {
     align-items: center;
     background-color: transparent;
   }
-  figure img {
-    transition: all 0.2s ease;
-  }
-  figure:hover img {
-    scale: 102%;
-    border-radius: 4px;
-  }
 }
+figure img {
+  transition: all 0.2s ease;
+}
+figure:hover img {
+  scale: 102%;
+  border-radius: 4px;
+}
+
 @media (min-aspect-ratio: 1/1) {
   article > nav {
-    margin-bottom: 20px;
     margin-right: 25%;
-  }
-  article > nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 8px;
   }
   article > nav ul li {
     min-width: max-content;
@@ -226,6 +259,33 @@ article nav ul li a {
     transition: opacity 0.2s ease 0.005s, text-shadow 0.3s ease;
   }
 }
+@media (max-aspect-ratio: 1/1) {
+  article > nav ul li a:hover {
+    text-shadow: 0 0 8px;
+  }
+  article > nav ul li a {
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    text-decoration: underline;
+    transition: opacity 0.2s ease 0.005s, text-shadow 0.3s ease;
+  }
+}
+article > nav {
+  margin-bottom: 20px;
+}
+article > nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 8px;
+}
+article > nav ul li {
+  min-width: max-content;
+  width: 30%;
+}
+
 @media (min-aspect-ratio: 1/1) {
   article > h2 {
     font-size: 1.5rem;
@@ -253,6 +313,21 @@ article nav ul li a {
   }
   article #descriptions p:hover {
     opacity: 1;
+  }
+}
+@media (max-aspect-ratio: 1/1) {
+  article > h2 {
+    font-size: 1.4rem;
+  }
+  article #descriptions {
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+  article #descriptions p {
+    margin-bottom: 8px;
+    margin-right: 5%;
+    font-size: 0.9rem;
+    line-height: 0.85;
   }
 }
 @media (min-aspect-ratio: 1/1) {

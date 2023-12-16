@@ -5,20 +5,12 @@
 
 @media (min-aspect-ratio: 1/1) {
   main {
-    display: flex;
     flex-direction: row;
-    overflow-y: hidden;
+    // overflow-y: hidden;
 
     article {
       width: 50%;
       margin: 12dvh 0 10dvh 10dvw;
-      position: relative;
-
-      figure {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
     }
 
     > nav {
@@ -37,11 +29,35 @@
         overflow-y: scroll;
       }
     }
+  }
+}
 
-    button {
+@media (max-aspect-ratio: 1/1) {
+  main {
+    flex-direction: column-reverse;
+    height: 100dvh;
+
+    > nav {
+      margin: 8dvh 0;
+    }
+
+    article {
+      flex: 1;
+      margin: 0 12dvw 8dvh 12dvw;
+    }
+  }
+}
+
+main {
+  display: flex;
+
+  article {
+    position: relative;
+
+    figure {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      bottom: 0;
+      left: 0;
     }
   }
 }

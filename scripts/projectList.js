@@ -53,7 +53,7 @@ export const setProjectList = () => {
         const title = project.title
 
         li.innerHTML = `
-            <a href="#${title}"><span id="${title}">${title}</span></a>
+            <a href="#${title}"><span id="${title + "-span"}">${title}</span></a>
         `
 
         document.querySelector('#projects ol').appendChild(li)
@@ -67,7 +67,7 @@ export const setListFlip = (project) => {
     if (preFlipped !== null)
         document.querySelector('.flipped').classList.remove('flipped')
 
-    document.getElementById(project.title).classList.add('flipped')
+    document.getElementById(project.title + "-span").classList.add('flipped')
 }
 
 export const getSelectedProject = () => {

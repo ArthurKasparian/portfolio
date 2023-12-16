@@ -17,6 +17,6 @@ setCursorHovers()
 // Sets project on each selection
 document
     .querySelectorAll('#projects ol li a')
-    .forEach(a => a.addEventListener('click', () => {
+    .forEach(a => a.addEventListener('click', e => {
         setTimeout(selectProject, 1)
     }))
