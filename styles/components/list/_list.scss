@@ -1,0 +1,35 @@
+// Copyright (c) 2023 ~ 2023 Arthur Kasparian, Individual All Rights Reserved
+// Unauthorized copying of this file, via any medium is strictly prohibited
+// Proprietary and confidential
+// Written by Arthur Kasparian <contact@arthurkasparian.dev>, Month 12 2023. Last modified 16/12/2023, 10:20 pm
+
+@import './project';
+
+@media (min-aspect-ratio: 1/1) {
+  #projects {
+    ol {
+      list-style: none;
+      counter-reset: item -1;
+      direction: rtl;
+      width: max-content;
+
+      li {
+        counter-increment: item;
+        margin-bottom: 12px;
+        padding-bottom: 4px;
+
+        opacity: .6;
+
+        &:hover, &:has(.flipped) {
+          opacity: 1;
+        }
+
+        &:hover:not(:has(.flipped)) {
+          text-shadow: 0 0 6px;
+        }
+
+        transition: opacity .2s ease .1s, text-shadow .3s ease .0s;
+      }
+    }
+  }
+}

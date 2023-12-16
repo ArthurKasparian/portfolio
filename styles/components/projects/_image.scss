@@ -1,0 +1,26 @@
+// Copyright (c) 2023 ~ 2023 Arthur Kasparian, Individual All Rights Reserved
+// Unauthorized copying of this file, via any medium is strictly prohibited
+// Proprietary and confidential
+// Written by Arthur Kasparian <contact@arthurkasparian.dev>, Month 12 2023. Last modified 16/12/2023, 10:23 pm
+
+@media (min-aspect-ratio: 1/1) {
+  figure {
+    width: 90%;
+    //margin: 12px;
+    aspect-ratio: 16/9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+
+    img {
+      transition: all .2s ease;
+    }
+
+    &:hover img {
+      scale: 102%;
+      border-radius: 4px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+// Copyright (c) 2023 ~ 2023 Arthur Kasparian, Individual All Rights Reserved
+// Unauthorized copying of this file, via any medium is strictly prohibited
+// Proprietary and confidential
+// Written by Arthur Kasparian <contact@arthurkasparian.dev>, Month 12 2023. Last modified 15/12/2023, 9:09 pm
+
+* {
+  font-family: Jomolhari, sans-serif;
+  font-weight: normal;
+  vertical-align: text-bottom;
+
+  font-kerning: auto;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+
+  text-rendering: optimizeLegibility;
+
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+h1 span {
+  white-space: pre
+}
+
+#descriptions p {
+  font-family: "Crimson Text", sans-serif;
+
+}
+
+article nav ul li a {
+  font-family: "Crimson Pro", sans-serif;
+}

@@ -3,55 +3,89 @@
 // Proprietary and confidential
 // Written by Arthur Kasparian <contact@arthurkasparian.dev>, Month 12 2023. Last modified 15/12/2023, 7:20 pm
 
-import projects from "./projectList.js";
+import {getSelectedProject, setListFlip} from "./projectList.js";
+import {updateCursorHovers} from "./cursor.js";
+import setTheme, {toggleProjectSwitchAnimation} from "./theme.js";
 
-export default function selectProject() {
-    const project = projects.find(p => {
-        const hash = window.location.hash
+let current
 
-        if (hash === '')
-            return projects[0].title
-        else
-            return p.title === decodeURIComponent(hash).slice(1)
-    })
+export const selectProject = () => {
+    const project = getSelectedProject()
 
-    document.getElementById('title').innerText = project === projects[0] ? "Arthur Kasparian" : project.title
-    document.getElementById('type').innerText = project.type
-    // document.querySelector('figure img').src = project.thumbnail TODO: Enable when added content
+    if (project === current && current != null)
+        return
 
-    setDescriptions(project)
-    setSocials(project)
+    toggleProjectSwitchAnimation()
+    setListFlip(project)
+
+    setTimeout(() => {
+
+        // Sets data
+        document.querySelector('h2').innerText = project.title === 'Myself' ? "Arthur Kasparian" : project.title
+        document.querySelector('h3').innerText = project.type
+        setImage(project)
+        setDescriptions(project.descriptions)
+        setSocials(project.socials)
+
+        document.querySelectorAll('a, img').forEach(element => {
+            element.setAttribute('draggable', 'false')
+        })
+
+        updateCursorHovers()
+        setTheme(project.theme)
+        toggleProjectSwitchAnimation()
+    }, 200)
+
+    current = project
 }
 
-const setDescriptions = (project) => {
-    // Resets previous info before filling
-    document.getElementById('descriptions').innerHTML = ""
+const setImage = (project) => {
+    if (project.thumbnail === "") {
+        document.querySelector('figure').style.display = 'none'
+    } else {
+        document.querySelector('figure').style.display = 'block'
 
-    project.descriptions.forEach(description => {
+        const image = document.querySelector('figure img')
+        image.src = project.thumbnail
+        image.alt = `Thumbnail of ${project.title}`
+        document.querySelector('figure').style.boxShadow = `${project.theme.primary} 0 0 16px`
+    }
+}
+
+const setDescriptions = (descriptions) => {
+    const descriptionsHTML = document.getElementById('descriptions')
+
+    // Resets previous info before filling
+    descriptionsHTML.innerHTML = ""
+
+    descriptions.forEach(description => {
         const d = document.createElement('p')
-        d.innerText = String(description) // description.toString()
-        document.getElementById('descriptions').appendChild(d)
+        d.innerText = description.toString()
+
+        descriptionsHTML.appendChild(d)
     })
 }
 
-const setSocials = (project) => {
+const setSocials = (socials) => {
     // Resets previous info before filling
-    document.querySelector('#socials >ul').innerHTML = ""
+    document.querySelector('article nav ul').innerHTML = ""
 
-    project.socials.forEach(social => {
+    socials.forEach(social => {
         const li = document.createElement('li')
         const a = document.createElement('a')
 
-        a.title = social.title
-        a.href = social.url
-        a.target = "_blank"
         a.innerText = social.title
 
-        if (social.title === 'Resume')
-            a.download = social.filename
+        if (social.title === "Email") {
+            a.onclick = () => navigator.clipboard.writeText(social.url);
+            a.title = "Copy Address"
+        } else {
+            a.href = social.url
+            a.target = "_blank"
+        }
 
         li.appendChild(a)
 
-        document.querySelector('#socials >ul').appendChild(li)
+        document.querySelector('article nav >ul').appendChild(li)
     })
 }

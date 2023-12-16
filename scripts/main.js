@@ -3,21 +3,20 @@
 // Proprietary and confidential
 // Written by Arthur Kasparian <contact@arthurkasparian.dev>, Month 12 2023. Last modified 15/12/2023, 8:19 pm
 
-import selectProject from "./projects.js";
+import {selectProject} from "./projects.js";
 import {setProjectList} from "./projectList.js";
+import {setCursorHovers} from "./cursor.js";
 
 // Sets the list of projects where user can select which to view
 setProjectList()
 
-// Set project needs a slight delay for hover effect to work properly
-const setProject = () => {
-    setTimeout(() => {
-        selectProject()
-    }, 0)
-}
+setTimeout(selectProject, 40)
 
-setProject() // Sets project on load
+setCursorHovers()
 
 // Sets project on each selection
-document.querySelectorAll('#projects ol li a')
-    .forEach(a => a.addEventListener('click', setProject))
+document
+    .querySelectorAll('#projects ol li a')
+    .forEach(a => a.addEventListener('click', () => {
+        setTimeout(selectProject, 1)
+    }))
