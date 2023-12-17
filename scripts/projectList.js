@@ -14,13 +14,13 @@ const projects = [
             primary: "#3D4F53"
         },
         descriptions: [
-            "I'm a passionate software engineer, designer out of necessity, third year Computer Science major, and always on the lookout for new opportunities. In my free time I'm usually working on side projects, enjoying myself with a hobby I love, or just generally spending time with friends and family.",
-            "You probably noticed how I've categorized myself as a project, because it is my belief that we are never a complete product as people, that there is always a ‘bug’ to be fixed or ‘feature’ to be added within us, be it through learning or constructive criticism."
+            "I'm a passionate software engineer, graphic designer by necessity, and third year computer science student. In my free time I'm usually working on side projects, focusing on one of my many hobbies that I love, or just generally spending time with friends and family.",
+            "You probably noticed how I've categorized myself as a project, because it is my belief that we are never complete as people, there will always be a ‘bug’ or ‘feature’ that we can work on and improve, be it through learning or constructive criticism."
         ],
         socials: [
+            { title: "Github", url: "https://github.com/arthurkasparian" },
             { title: "LinkedIn", url: "https://linkedin.com/in/arthurkasparian" },
             { title: "X/Twitter", url:"https://x.com/kasparianarthur" },
-            { title: "Github", url: "https://github.com/arthurkasparian" },
             { title: "StackOverflow", url: "https://stackoverflow.com/users/19454251/arthur-kasparian" },
             { title: "Instagram", url: "https://instagram.com/arthur.kasparian" },
             { title: "Resume", url: "./res/resume.pdf" },
@@ -41,8 +41,8 @@ const projects = [
         ],
         socials: [
             { title: "Website", url: "https://httpster-clone.arthurkasparian.dev" },
-            { title: "Source Code", url: "https://github.com/arthurkasparian/httpster-clone" },
             { title: "Original", url: "https://httpster.net" },
+            { title: "Source Code", url: "https://github.com/arthurkasparian/httpster-clone" },
         ]
     },
 ]
