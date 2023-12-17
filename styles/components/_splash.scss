@@ -1,0 +1,99 @@
+// Copyright (c) 2023 ~ 2023 Arthur Kasparian, Individual All Rights Reserved
+// Unauthorized copying of this file, via any medium is strictly prohibited
+// Proprietary and confidential
+// Written by Arthur Kasparian <contact@arthurkasparian.dev>, Month 12 2023. Last modified 17/12/2023, 1:24 am
+
+@media (min-aspect-ratio: 1/1) {
+  #ring {
+    height: 70dvh;
+
+    animation: shrink .75s ease-in-out 2.8s forwards;
+  }
+
+  @keyframes shrink {
+    60% {
+      opacity: 1;
+    }
+    100% {
+      height: 0;
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #ring {
+    width: 80dvw;
+
+    animation: shrink .75s ease-in-out 2.8s forwards;
+  }
+
+  @keyframes shrink {
+    60% {
+      opacity: 1;
+    }
+    100% {
+      width: 0;
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+}
+
+
+#splash {
+  z-index: 2;
+  width: 100dvw;
+  height: 100dvh;
+
+  background-color: #E1E5DB;
+  color: #3D4F53;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  white-space: pre;
+
+  h1::after {
+    content: "|";
+    margin-left: 20px;
+  }
+
+  h1::after, span {
+    opacity: .6;
+  }
+
+  animation: fadeOut .3s ease 4s forwards;
+
+  h1, span {
+    animation: fadeOut .2s ease-in-out 2.5s forwards;
+  }
+}
+
+#ring {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: #3D4F53 .5px solid;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+  }
+}

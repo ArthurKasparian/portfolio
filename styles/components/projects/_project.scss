@@ -7,24 +7,6 @@
 @import "./socials";
 @import "./info";
 
-@media (min-aspect-ratio: 1/1) {
-  article {
-
-    #descriptions, > nav ul {
-
-      &:empty {
-        display: none;
-      }
-    }
-  }
-}
-
-@media (max-aspect-ratio: 1/1) {
-  article {
-
-  }
-}
-
 article nav, h2, h3, #descriptions, figure, img {
   &.hide {
     opacity: 0;
