@@ -102,8 +102,31 @@ main {
   color: #3D4F53;
 }
 
+/* crimson-text-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/res/fonts/crimson-text.woff2") format("woff2");
+}
+/* crimson-pro-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Crimson Pro";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/res/fonts/crimson-pro-600.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Jomolhari";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/res/fonts/jomolhari.woff2") format("woff2");
+}
 * {
-  font-family: Jomolhari, sans-serif;
+  font-family: "Jomolhari", sans-serif;
   font-weight: normal;
   vertical-align: text-bottom;
   font-kerning: auto;
@@ -112,10 +135,6 @@ main {
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
   line-height: 1;
-}
-
-h1 span {
-  white-space: pre;
 }
 
 #descriptions p {
